@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/TodoApp', {useNewUrlParser: true});
+let db = {
+  localhost: 'mongodb://localhost:27017/TodoApp',
+  mlab: 'mongodb://HarshaKy:fibonacci12358!@ds143744.mlab.com:43744/deployment'
+};
+mongoose.connect( (db.localhost || db.mlab), {useNewUrlParser: true});
 
 module.exports = {mongoose};
+
+
+//

@@ -63,7 +63,7 @@ app.get('/todos/:id', (req, res) => {
   Todo.findById(id).then((todo) => {
     // console.log('3rd');
     if (!todo) {
-      res.status(400).send('Todo not found');
+      res.status(404).send('Todo not found');
     }
     res.send({todo});
   }).catch((e) => console.log('Invalid Id'));
@@ -79,7 +79,7 @@ app.delete('/todos/:id', (req, res) => {
 
   Todo.findByIdAndDelete(id).then((todo) => {
     if (!todo) {
-      res.status(400).send('Todo not found');
+      res.status(404).send('Todo not found');
     }
 
     res.send({todo});

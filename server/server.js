@@ -98,7 +98,7 @@ app.patch('/todos/:id', (req, res) => {
     body.completedAt = new Date().getTime();
   } else {
     body.completed = false;
-    body.comple = null;
+    body.completedAt = null;
   }
 
   Todo.findByIdAndUpdate(id, {$set: body}, {new: true}).then((todo) => {

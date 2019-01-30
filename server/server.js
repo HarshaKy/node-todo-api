@@ -14,6 +14,7 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
+// POST todos
 app.post('/todos', (req, res) => {
   var todo = new Todo({
     text: req.body.text
@@ -26,6 +27,7 @@ app.post('/todos', (req, res) => {
   });
 });
 
+// POST users
 app.post('/users', (req, res) => {
   var body = _.pick(req.body, ['email', 'password']);
   var user = new User(body);
@@ -37,6 +39,7 @@ app.post('/users', (req, res) => {
   });
 });
 
+// GET todos
 app.get('/todos', (req, res) => {
   Todo.find().then((todos) => {
     res.send({todos});
@@ -45,6 +48,7 @@ app.get('/todos', (req, res) => {
   });
 });
 
+// GET users
 app.get('/users', (req, res) => {
   User.find().then((users) => {
     res.send({users});
@@ -53,6 +57,7 @@ app.get('/users', (req, res) => {
   });
 });
 
+// GET todos by id
 app.get('/todos/:id', (req, res) => {
   var id = req.params.id;
 
@@ -70,6 +75,7 @@ app.get('/todos/:id', (req, res) => {
 
 });
 
+// DELETE todos by id
 app.delete('/todos/:id', (req, res) => {
   var id = req.params.id;
 
@@ -86,6 +92,7 @@ app.delete('/todos/:id', (req, res) => {
   }).catch((e) => console.log('invalid ID'));
 });
 
+// UPDATE/PATCH todos by id
 app.patch('/todos/:id', (req, res) => {
   var id = req.params.id;
   var body = _.pick(req.body, ['text', 'completed']);

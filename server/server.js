@@ -26,14 +26,12 @@ app.post('/todos', (req, res) => {
   });
 });
 
-app.post('/user', (req, res) => {
-  var user = new User({
-    name: req.body.name,
-    email: req.body.email
-  });
+app.post('/users', (req, res) => {
+  var body = _.pick(req.body, ['email', 'password']);
+  var user = new User(body);
 
-  user.save().then((doc) => {
-    res.send(doc);
+  user.save().then((user) => {
+    res.send(user);
   }, (e) => {
     res.status(400).send(e);
   });
@@ -47,7 +45,7 @@ app.get('/todos', (req, res) => {
   });
 });
 
-app.get('/user', (req, res) => {
+app.get('/users', (req, res) => {
   User.find().then((users) => {
     res.send({users});
   }, (e) => {

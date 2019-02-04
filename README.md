@@ -1,3 +1,3 @@
 # node-todo-api
 
-Simple todo app made using node.js
+A todo app using REST API 

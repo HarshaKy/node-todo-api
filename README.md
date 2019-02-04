@@ -1,3 +1,3 @@
-# node-todo-api
+# Todo-App Using REST
 
-A todo app using REST API 
+A todo app using REST API.

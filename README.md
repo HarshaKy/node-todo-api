@@ -1,6 +1,6 @@
 # Todo-App Using REST
 
-A todo app using REST API.
+A todo app using REST API. Implemented database using mongodb and mongoose.js. Used jwt and crypto-js to perform user authentication. Only back-end app. Worked with and tested using Postman.
 
 Npm  
   download and install npm form here https://nodejs.org/en/  
@@ -17,7 +17,7 @@ Running the app in dev mode:
    
     npm run start
 
-deployed on heroku
+deployed on heroku, the database is stored in mlab
 
 visit https://radiant-garden-87405.herokuapp.com/todos to view the todos created
 

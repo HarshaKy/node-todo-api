@@ -15,7 +15,7 @@ Running the app in dev mode:
     
 	cd file_directory
    
-    npm run dev
+    npm run start
 
 deployed on heroku
 
